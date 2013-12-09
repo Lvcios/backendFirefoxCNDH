@@ -2,6 +2,7 @@
 ## Eclipse
 #################
 *.pyc
+*.xls
 *.pydevproject
 .project
 .metadata
