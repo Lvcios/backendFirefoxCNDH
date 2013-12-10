@@ -65,19 +65,103 @@
 			position: relative;
 			height: 45vh;
 			width: 70vw;
+			text-align : justify;
 			}
 
-		.SEDENA{
-		    padding-bottom: 35px;
-		    padding-top: 35px;
-		    background-color: #FF5D5D;
+		.jump{
+			padding: 2em;
+		    background-color: #eeeeee;
 		    color: inherit;
-		    font-size: 21px;
-		    font-weight: 200;
-		    line-height: 0;
+		    height: 80px;
+		    position: relative;
 		    margin-bottom: 1px;
-		    padding: 41px;
+
 		}
+		.IMSS{
+		    background-image:url('{% static 'img/IMSS.png' %}');
+		    background-position: 93% 50%;
+		    background-repeat: no-repeat;
+		    background-size: 15% auto;
+		}
+
+		.SEDENA{
+			background-image:url('{% static 'img/SEDENA.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}		
+		.OADPRS{
+			background-image:url('{% static 'img/OADPRS.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.CFE{
+			background-image:url('{% static 'img/CFE.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.SEP{
+			background-image:url('{% static 'img/SEP.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.PF{
+			background-image:url('{% static 'img/PF.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.PGR{
+			background-image:url('{% static 'img/PGR.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.ISSSTE{
+			background-image:url('{% static 'img/ISSSTE.png' %}');
+			background-position: 90% 50%;
+			background-repeat: no-repeat;
+			background-size: 10%;
+		}
+		.INM{
+			background-image:url('{% static 'img/INM.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.SEMAR{
+			background-image:url('{% static 'img/SEMAR.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.descripcion{
+		    float: left;
+		    height: 100%;
+		    position: relative;
+		    width: 50%;
+		    word-wrap: break-word;
+		}
+		.fecha_hra{
+/*			border: 1px solid #000000;
+*/			height: 100%;
+			width: 40%;
+			float: left;
+		}
+		.fecha_reporte{
+			height: 50%;
+		    width: 100%;
+			margin-bottom: 1%
+
+		}
+		.hora_reporte{
+			height: 50%;
+		    width: 100%;
+		}
+		
 	</style>
 	<body>
 	<div id="contenedor_principal">
@@ -114,9 +198,12 @@
 				<div id="reporte">
 					<div id="reporte_asunto" class="col-md-12">
 						{% for reporte in reportes %}
-							<div class="{{reporte.nombreInst.nombreInst}}">
-								<p>{{reporte.descripcion}}</p>
-								<p>{{reporte.fechaUpload}}</p>
+							<div class="jump {{reporte.nombreInst.nombreInst}}">
+								<div class="descripcion"><b>{{reporte.descripcion}}</b></div>
+								<div class="fecha_hra">
+									<div class="fecha_reporte"><b>{{reporte.fechaUpload | date:"d/m/y"}}</b></div>
+									<div class="hora_reporte"><b>{{reporte.fechaUpload | date:"H:i"}}</b></div>
+								</div>
 							</div>
 						{% endfor %}	
 					</div>	
@@ -125,11 +212,11 @@
 			<div id="contenido" class="col-md-9">
 				<div id="titulos">
 					<div class="col-md-9">
-						<h3>Nombre: {{ultimoReporte.nombre}}
+						<h3>{{ultimoReporte.nombre}}
 						</h3>
 					</div>
 					<div class="col-md-3">
-						<h3>Folio:{{ultimoReporte.folio}}</h3>
+						<h3>Folio:<b>{{ultimoReporte.folio}}</b></h3>
 					</div>
 				</div>	
 					<div id="mensaje_contenido" class="col-md-12">
@@ -137,13 +224,18 @@
 					</div>	
 				<center>
 					<div class="col-md-4">
-						<h2>Incidencia:{{ultimoReporte.reincide}} </h2>
+						<h2>Incidencia:{{ultimoReporte.reincide}}</h2>
+						{% if reincide %}
+						  	<span class="glyphicon glyphicon-ok"></span>
+						{% else %}
+							<span class="glyphicon glyphicon-remove"></span>
+						{% endif %}		
 					</div>
 					<div class="col-md-4">
 						<h2>Lugar:*En la app no se especifica el lugar :/</h2>
 					</div>
 					<div class="col-md-4">
-						<h2>Fecha:{{ultimoReporte.fecha}} </h2>
+						<h2>Fecha de incidente:<br><b>{{ultimoReporte.fecha}}</b></h2>
 					</div>
 
 				<div id="respuesta" class="row">
@@ -157,16 +249,21 @@
 				</div>
 			</div>
 		</div>
-	
-		
-
-
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
-    //Color dependencia
-    getElement('')
+	
+    //Mostrar solo X cantidad de caracteres en los reportes
+	var start=0;
+  	var length=40;
+  	var el = document.getElementsByClassName('jump');
+  	for( var i=0 ; i < el.length ; i++ ){
+  		var text = el[i].getElementsByTagName('div')[0].innerHTML;
+  		text = text.substr(start,length);
+  		el[i].getElementsByTagName('div')[0].innerHTML = text+"...";
+  	} 
 
+  	// pop-over con estadisticas del administrador
     var mensaje = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
     var salto_linea = '<br>'
     var archivados = '30';
