@@ -37,4 +37,4 @@ class ReporteResource(ModelResource):
 		resource_name = 'reporte'
 		excludes = ['respuestaText','cita','meta']
 """
-#ola k ase
+#ola k as
