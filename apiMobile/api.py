@@ -37,3 +37,4 @@ class ReporteResource(ModelResource):
 		resource_name = 'reporte'
 		excludes = ['respuestaText','cita','meta']
 """
+#tastypie rules!
