@@ -32,6 +32,7 @@ Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del
 	"direccion":"Esto es un texto con una dirección",
 	"telefono":"212-323-1233",
 	"descripcion":"El texto con la historia del usuario",
-	"fecha":"1233-43-32"
+	"fecha":"1233-43-32",
+	"reincide": "true" // or false   [no se embia si no es nesesario]
 }
 ```
