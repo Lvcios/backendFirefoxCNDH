@@ -36,3 +36,7 @@ Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del
 	"reincide": "true" // or false   [no se embia si no es nesesario]
 }
 ```
+
+###Response 
+	curl http://127.0.0.1:8000/api/v1/reporte/1/
+	response: {"apellido": "PEREZ", "compete": "", "correo": "hiram@hiramperez.net", "descripcion": "aspdashdlkasjld", "direccion": "Calle  X 899", "fecha": "19/10/2013", "fechaUpload": "2013-12-11T15:29:29.733000", "folio": 1, "nombre": "HIRAM", "reincide": true, "resource_uri": "/api/v1/reporte/1/", "telefono": "741852963"}
