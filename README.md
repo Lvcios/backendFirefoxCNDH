@@ -17,7 +17,7 @@ Desde una terminal:
 
 ###POST 
 
-	curl --dump-header - -H "Content-Type: application/json" -X POST --data "{\"nombreInst_id\":\"/api/v1/institucion/1/\",\"nombre\":\"Lvcios\",\"apellido\":\"Malfoy\",\"correo\":\"lmalfoi@slytherin.hogwarts.uk\",\"telefono\":\"123456780\",\"descripcion\":\"El que no puede ser nombrado ha atacado de nuevo.\",\"direccion\":\"London Street 748\",\"fecha\":\"19 de Octubre 2013\",\"reincide\":true,\"status_id\":\"/api/v1/status/1/\"}" 127.0.0.1:8000/api/v1/reporte/
+	curl --dump-header - -H "Content-Type: application/json" -X POST --data  "{\"nombreInst_id\":\"/api/v1/institucion/1/\",\"nombre\":\"Lvcios\",\"apellido\":\"Malfoy\",\"correo\":\"lmalfoi@slytherin.hogwarts.uk\",\"telefono\":\"123456780\",\"descripcion\":\"El que no puede ser nombrado ha atacado de nuevo.\",\"direccion\":\"London Street 748\",\"fecha\":\"19 de Octubre 2013\",\"reincide\":true,\"status_id\":\"/api/v1/status/1/\"}" 127.0.0.1:8000/api/v1/reporte/
 		
 Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del funcionamiento de CURL en Windows.
 
@@ -39,4 +39,4 @@ Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del
 
 ###Response 
 	curl http://127.0.0.1:8000/api/v1/reporte/1/
-	response: {"apellido": "PEREZ", "compete": "", "correo": "hiram@hiramperez.net", "descripcion": "aspdashdlkasjld", "direccion": "Calle  X 899", "fecha": "19/10/2013", "fechaUpload": "2013-12-11T15:29:29.733000", "folio": 1, "nombre": "HIRAM", "reincide": true, "resource_uri": "/api/v1/reporte/1/", "telefono": "741852963"}
+	response: {"apellido": "PEREZ", "compete": "", "correo": "hiram@hiramperez.net", "descripcion": "aspdashdlkasjld", "direccion": "Calle  X 899", "fecha": "19/10/2013", "fechaUpload": "2013-12-11T15:29:29.733000", "folio": 1, "nombre": "HIRAM", "reincide": true, "resource_uri": "/api/v1/reporte/1/", "telefono": "741852963"} 
