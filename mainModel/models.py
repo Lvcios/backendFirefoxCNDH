@@ -1,5 +1,6 @@
 #encoding:utf-8
 from django.db import models
+from tastypie.utils.timezone import now
 # Create your models here.
 
 class Institucion(models.Model):
@@ -17,14 +18,14 @@ class Reporte(models.Model):
 	nombreInst = models.ForeignKey(Institucion)
 	nombre = models.CharField(max_length=100, verbose_name = 'Nombres')
 	apellido = models.CharField(max_length=100, verbose_name = 'Apellidos ')
-	correo = models.CharField(max_length=100, verbose_name = 'Correo')
+	correo = models.EmailField(verbose_name = 'Correo')
 	telefono = models.CharField(max_length=30, verbose_name = 'Telefono')
 	descripcion = models.TextField(verbose_name = 'Descripcion de la situacion')
 	direccion = models.CharField(max_length=100, verbose_name = 'Domicilio Usuario')
 	fecha = models.CharField(max_length=20, verbose_name = 'Fecha del incidente') #fecha del incidente
-	reincide = models.CharField(max_length=10, verbose_name = 'Situacion vivida (on off)')
+	reincide = models.BooleanField(default = False)
 	#campos automaticos
-	fechaUpload = models.DateTimeField(auto_now = True, verbose_name = 'Fecha de recibido') #fecha de guardado
+	fechaUpload = models.DateTimeField(default = now, blank  = True, verbose_name = 'Fecha de recibido') #fecha de guardado
 	status = models.ForeignKey(StatusReporte)
 	compete = models.CharField(max_length = 10, blank = True, default = "No")
 	respuestaText = models.TextField(blank = True)
