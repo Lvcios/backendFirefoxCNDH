@@ -11,7 +11,7 @@ class Institucion(models.Model):
 class StatusReporte(models.Model):
 	descripcionStatus = models.CharField(max_length = 20)
 	def __unicode__(self):
-		return unicode(self.descripcionStatus)
+		return unicode(self.descripcionStatus) #unicode
 	
 class Reporte(models.Model):
 	folio = models.AutoField(primary_key = True, verbose_name = 'Folio del reporte')
