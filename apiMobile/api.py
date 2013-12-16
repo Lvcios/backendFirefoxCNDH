@@ -9,6 +9,7 @@ class StatusReporteResource(ModelResource):
 		queryset = StatusReporte.objects.all()
 		resource_name = 'status'
 		authorization = Authorization()
+		filtering = {'id':ALL,}
 
 class InstitucionResource(ModelResource):
 	class Meta:
@@ -18,14 +19,13 @@ class InstitucionResource(ModelResource):
 
 class ReporteResource(ModelResource):
 	nombreInst_id = fields.ForeignKey(InstitucionResource, 'nombreInst')
-	#status_id = fields.ForeignKey(StatusReporteResource, 'descripcionStatus')
 	status_id = fields.ForeignKey(StatusReporteResource, 'status')
 	class Meta:
 		queryset = Reporte.objects.all()
 		resource_name = 'reporte'
 		excludes = ['fechaUpload']
 		authorization = Authorization()
-		filtering = {'folio': ALL,'nombre': ALL,'status':ALL_WITH_RELATIONS,}
+		filtering = {'status_id':ALL_WITH_RELATIONS,}
 
 
 #codigo de ejemplo:
