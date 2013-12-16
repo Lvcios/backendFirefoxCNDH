@@ -30,6 +30,8 @@ Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del
 	curl --dump-header - -H "Content-Type: application/json" -X PATCH --data "{\"compete\":\"NO\"}" 127.0.0.1:8000/api/v1/reporte/2/
 
 
+###DELETE (eliminar un reporte específico)
+	curl --dump-header - -H "Content-Type: application/json" -X DELETE  127.0.0.1:8000/api/v1/reporte/2/
 
 ####Ejemplo de paquete que envia el frontend
 ```js
