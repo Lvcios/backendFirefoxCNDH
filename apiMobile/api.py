@@ -23,7 +23,7 @@ class ReporteResource(ModelResource):
 	class Meta:
 		queryset = Reporte.objects.all()
 		resource_name = 'reporte'
-		excludes = ['respuestaText','cita','resource_uri','fechaUpload']
+		excludes = ['fechaUpload']
 		authorization = Authorization()
 		filtering = {'folio': ALL,'nombre': ALL,'status':ALL_WITH_RELATIONS,}
 

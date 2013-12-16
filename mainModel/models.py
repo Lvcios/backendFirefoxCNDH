@@ -26,9 +26,9 @@ class Reporte(models.Model):
 	reincide = models.BooleanField(default = False)
 	#campos automaticos
 	fechaUpload = models.DateTimeField(default = now, blank  = True, verbose_name = 'Fecha de recibido') #fecha de guardado
-	status = models.ForeignKey(StatusReporte)
+	status = models.ForeignKey(StatusReporte, verbose_name = 'Estado del reporte')
 	compete = models.CharField(max_length = 10, blank = True, default = "No")
-	respuestaText = models.TextField(blank = True)
+	respuestaText = models.TextField(blank = True, verbose_name = "Respuesta")
 	cita = models.CharField(max_length = 50,blank = True)
 	def __unicode__(self):
 		return str(self.folio)
