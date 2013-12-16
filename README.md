@@ -14,6 +14,9 @@ Desde una terminal:
 	curl http://127.0.0.1:8000/api/v1/reporte/1/ #el reporte con folio 1
 	curl http://127.0.0.1:8000/api/v1/institucion/1/
 	curl http://127.0.0.1:8000/api/v1/status/1/
+	
+###GET Con filtro
+	curl 127.0.0.1:8000/api/v1/reporte/?status_id__id=1 #retorna todos los reportes con el status "1" que corresponde a "Recibido", 2 para "Leido" y 3 para "Archivado"
 
 ###POST 
 
