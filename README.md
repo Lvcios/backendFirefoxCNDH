@@ -17,7 +17,7 @@ Desde una terminal:
 
 ###POST 
 
-	curl --dump-header - -H "Content-Type: application/json" -X POST --data "{\"nombreInst\":\"api/v1/institucion/1/\",\"nombre\":\"Lvcios\",\"apellido\":\"Malfoi\",\"correo\":\"lmalfoi@slytherin.hogwarts.uk\",\"telefono\":\"1234567890001\",\"descripcion\":\"El profesor Snape nos deja demasiada tarea.\,\"direccion\":\"Oxford Stree 789. Londres.\",\"fecha\":\"19/12/2013\", \"reincide\":\"True\",}" http://127.0.0.1:8000/api/v1/reporte/
+	curl --dump-header - -H "Content-Type: application/json" -X POST --data "{\"nombreInst_id\":\"/api/v1/institucion/1/\",\"nombre\":\"Lvcios\",\"apellido\":\"Malfoy\",\"correo\":\"lmalfoi@slytherin.hogwarts.uk\",\"telefono\":\"123456780\",\"descripcion\":\"El que no puede ser nombrado ha atacado de nuevo.\",\"direccion\":\"London Street 748\",\"fecha\":\"19 de Octubre 2013\",\"reincide\":true,\"status_id\":\"/api/v1/status/1/\"}" 127.0.0.1:8000/api/v1/reporte/
 		
 Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del funcionamiento de CURL en Windows.
 
