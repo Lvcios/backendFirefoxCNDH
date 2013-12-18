@@ -133,6 +133,8 @@ INSTALLED_APPS = (
 	'apiMobile',
 	'apiAdministrator',
 	'mainModel',
+	'provider',
+	'provider.oauth2',
 )
 
 # A sample logging configuration. The only tangible logging

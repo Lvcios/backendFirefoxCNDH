@@ -1,21 +1,24 @@
-from tastypie.authorization import Authorization
+from tastypie.authorization import DjangoAuthorization
 from tastypie import fields
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from mainModel.models import *
+from authentication import OAuth20Authentication
 
 
 class StatusReporteResource(ModelResource):
 	class Meta:
 		queryset = StatusReporte.objects.all()
 		resource_name = 'status'
-		authorization = Authorization()
 		filtering = {'id':ALL,}
+		authorization = DjangoAuthorization()
+		authentication = OAuth20Authentication()
 
 class InstitucionResource(ModelResource):
 	class Meta:
 		queryset = Institucion.objects.all()
 		resource_name = 'institucion'
-		authorization = Authorization()
+		authorization = DjangoAuthorization()
+		authentication = OAuth20Authentication()
 
 class ReporteResource(ModelResource):
 	nombreInst_id = fields.ForeignKey(InstitucionResource, 'nombreInst')
@@ -24,9 +27,10 @@ class ReporteResource(ModelResource):
 		queryset = Reporte.objects.all()
 		resource_name = 'reporte'
 		excludes = ['fechaUpload']
-		authorization = Authorization()
 		filtering = {'status_id':ALL_WITH_RELATIONS,}
 		always_return_data = True 
+		authorization = DjangoAuthorization()
+		authentication = OAuth20Authentication()
 
 
 #codigo de ejemplo:
