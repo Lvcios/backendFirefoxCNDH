@@ -26,6 +26,7 @@ class ReporteResource(ModelResource):
 		excludes = ['fechaUpload']
 		authorization = Authorization()
 		filtering = {'status_id':ALL_WITH_RELATIONS,}
+		always_return_data = True 
 
 
 #codigo de ejemplo:
