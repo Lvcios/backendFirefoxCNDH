@@ -1,5 +1,7 @@
 # Django settings for FirefoxCNDH project.
 import os
+import dj_database_url #uncomment for local server, this line is for heroku
+DATABASES={'default':dj_database_url.config()} #uncomment for local server, this line 1is for heroku1
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,7 +11,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
+""" #uncomment for local server
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -21,7 +23,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
-
+"""
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
