@@ -1,6 +1,7 @@
 #################
 ## Eclipse
 #################
+dbTest
 *.pyc
 *.xls
 *.pydevproject
