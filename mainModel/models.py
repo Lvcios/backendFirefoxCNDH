@@ -41,12 +41,16 @@ class Reporte(models.Model):
 	respuestaText = models.TextField(blank = True, verbose_name = "Respuesta")
 	cita = models.CharField(max_length = 50,blank = True)
 	def save(self, *args, **kwargs):
-		super(Reporte, self).save(*args, **kwargs)
-		reload(sys)
-		sys.setdefaultencoding('latin1')
-		mensaje = 'Estimado ' + self.nombre + ' ' + self.apellido + '. \nSu reporte ha sido recibido y está en la espera de ser revisado por uno de nuestros operadores.' + '\nSu folio de seguimiento es ' + str(self. folio) + '.' + '\nEl mensaje que usted envio es el siguiente: ' + self.descripcion + '\nPor favor, no responda este correo.\n CNDH.' 
-		mensaje.encode('utf-8')
-		send_mail('Reporte CNDH', mensaje, 'noreply@cndh.org',['lfloresg0801@gmail.com'], fail_silently=False)
+		try: 
+			Reporte.objects.get(folio = self.folio)
+			super(Reporte, self).save(*args, **kwargs)
+		except:
+			super(Reporte, self).save(*args, **kwargs)
+			reload(sys)
+			sys.setdefaultencoding('latin1')
+			mensaje = 'Estimado ' + self.nombre + ' ' + self.apellido + '. \nSu reporte ha sido recibido y está en la espera de ser revisado por uno de nuestros operadores.' + '\nSu folio de seguimiento es ' + str(self. folio) + '.' + '\nEl mensaje que usted envio es el siguiente: ' + self.descripcion + '\nPor favor, no responda este correo.\n CNDH.' 
+			mensaje.encode('utf-8')
+			send_mail('Reporte CNDH', mensaje, 'noreply@cndh.org',[self.correo], fail_silently=False)
 	def __unicode__(self):
 		return str(self.folio)
 		
