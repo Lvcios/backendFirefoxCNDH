@@ -1,0 +1,313 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title></title>
+			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+			<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+			<link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+
+	</head>
+	<style>
+		*{
+		}
+
+		#titulos{
+			height: 10vh;
+			padding-left: 5vh; 
+			padding-right: 5vw;
+		}
+		#contenedor_principal{
+			position: fixed;
+			height: 100vh;
+			width: 100vw;
+		
+		}
+		#reportes{
+			bottom: 6vh;
+   			height: 100vh;
+    		position: static;
+		}
+		#reporte{
+			overflow-y: scroll;
+			position: static;
+			height: 95vh;
+			left: 0;
+
+
+		}
+		#contenido{
+			position: static;
+			height: 100vh;
+			right: 0;
+			bottom: 6vh;
+
+		}
+		#respuesta{
+			bottom: 0;
+    		position: relative;
+    		width: 75vw;
+    		height: 45vh;
+		}
+		#lectura{
+	
+		}
+		#camp_resp{
+			height: 25vh;
+			position:relative;
+			}
+		#mensaje_contenido{
+			padding-left: 5vh; 
+			padding-right: 5vw;
+			overflow-y: scroll;
+			position: relative;
+			height: 45vh;
+			width: 70vw;
+			text-align : justify;
+			}
+
+		.jump{
+			padding: 2em;
+		    background-color: #eeeeee;
+		    color: inherit;
+		    height: 80px;
+		    position: relative;
+		    margin-bottom: 1px;
+
+		}
+		.IMSS{
+		    background-image:url('{% static 'img/IMSS.png' %}');
+		    background-position: 93% 50%;
+		    background-repeat: no-repeat;
+		    background-size: 15% auto;
+		}
+
+		.SEDENA{
+			background-image:url('{% static 'img/SEDENA.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}		
+		.OADPRS{
+			background-image:url('{% static 'img/OADPRS.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.CFE{
+			background-image:url('{% static 'img/CFE.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.SEP{
+			background-image:url('{% static 'img/SEP.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.PF{
+			background-image:url('{% static 'img/PF.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.PGR{
+			background-image:url('{% static 'img/PGR.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.ISSSTE{
+			background-image:url('{% static 'img/ISSSTE.png' %}');
+			background-position: 90% 50%;
+			background-repeat: no-repeat;
+			background-size: 10%;
+		}
+		.INM{
+			background-image:url('{% static 'img/INM.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.SEMAR{
+			background-image:url('{% static 'img/SEMAR.png' %}');
+			background-position: 93% 50%;
+			background-repeat: no-repeat;
+			background-size: 15%;
+		}
+		.descripcion{
+		    float: left;
+		    height: 100%;
+		    position: relative;
+		    width: 50%;
+		    word-wrap: break-word;
+		}
+		.fecha_hra{
+/*			border: 1px solid #000000;
+*/			height: 100%;
+			width: 40%;
+			float: left;
+		}
+		.fecha_reporte{
+			height: 50%;
+		    width: 100%;
+			margin-bottom: 1%
+
+		}
+		.hora_reporte{
+			height: 50%;
+		    width: 100%;
+		}
+		
+	</style>
+	<body>
+	<div id="contenedor_principal">
+		
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Nuevos</a></li>
+            <li><a href="#revisados">Revisados</a></li>
+            <li><a href="#archivados">Archivados</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">       
+            <li><a class="glyphicon glyphicon-user" href="#" id="example"></a></li>
+            <li><a class="glyphicon glyphicon-off" href="#"></a></li>
+            <li id="busqueda"><form class="navbar-form navbar-left" role="search">
+                <input id="busqueda2" type="text" class="form-control" placeholder="Search">
+                </form></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+		<div class="row">
+			<div id="reportes" class="col-md-3">
+				<div id="reporte">
+					<div id="reporte_asunto" class="col-md-12">
+						{% for reporte in reportes %}
+							<div class="jump {{reporte.nombreInst.nombreInst}}">
+								<div class="descripcion"><b>{{reporte.descripcion}}</b></div>
+								<div class="fecha_hra">
+									<div class="fecha_reporte"><b>{{reporte.fechaUpload | date:"d/m/y"}}</b></div>
+									<div class="hora_reporte"><b>{{reporte.fechaUpload | date:"H:i"}}</b></div>
+								</div>
+							</div>
+						{% endfor %}	
+					</div>	
+				</div>
+			</div>
+			<div id="contenido" class="col-md-9">
+				<div id="titulos">
+					<div class="col-md-9">
+						<h3>{{ultimoReporte.nombre}}
+						</h3>
+					</div>
+					<div class="col-md-3">
+						<h3>Folio:<b>{{ultimoReporte.folio}}</b></h3>
+					</div>
+				</div>	
+					<div id="mensaje_contenido" class="col-md-12">
+						<p>{{ultimoReporte.descripcion}}</p>
+					</div>	
+				<center>
+					<div class="col-md-4">
+						<h2>Incidencia:{{ultimoReporte.reincide}}</h2>
+						{% if reincide %}
+						  	<span class="glyphicon glyphicon-ok"></span>
+						{% else %}
+							<span class="glyphicon glyphicon-remove"></span>
+						{% endif %}		
+					</div>
+					<div class="col-md-4">
+						<h2>Lugar:*En la app no se especifica el lugar :/</h2>
+					</div>
+					<div class="col-md-4">
+						<h2>Fecha de incidente:<br><b>{{ultimoReporte.fecha}}</b></h2>
+					</div>
+
+				<div id="respuesta" class="row">
+					<div  class="col-md-10">
+						<textarea id="camp_resp" class="form-control"></textarea>
+					</div>
+					<div class="col-md-2"><center>
+						 <br><button type="button" class="btn btn-primary" action="http://google.com">Si<br> Compete</button><br><br>
+ 						 <button type="button" class="btn btn-danger">No<br> Compete</button></center>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+	
+    //Mostrar solo X cantidad de caracteres en los reportes
+	var start=0;
+  	var length=40;
+  	var el = document.getElementsByClassName('jump');
+  	for( var i=0 ; i < el.length ; i++ ){
+  		var text = el[i].getElementsByTagName('div')[0].innerHTML;
+  		text = text.substr(start,length);
+  		el[i].getElementsByTagName('div')[0].innerHTML = text+"...";
+  	} 
+
+  	// pop-over con estadisticas del administrador
+    var mensaje = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
+    var salto_linea = '<br>'
+    var archivados = '30';
+    var revisados = '20';
+    var secciones=["<b>HOY</b>","<b>MES</b>"];
+    $(function () {
+    $('#example').popover({
+    title: 'Productividad',
+    content: secciones[0]+salto_linea+'Revisados:'+revisados+salto_linea+'Archivados:'+archivados+salto_linea+secciones[1]+salto_linea+'Revisados:'+revisados+salto_linea+'Archivados:'+archivados,
+    placement: 'bottom',
+    html:true
+
+    });
+     
+    }); 
+	var timerPopover, popover_parent;
+	 
+	function hidePopover(elem) {
+	$(elem).popover('hide');
+	}
+	 
+	$('#example').hover(
+	function() {
+	var self = this;
+	clearTimeout(timerPopover);
+	$('.popover-all').hide(); //Hide any open popovers on other elements.
+	popover_parent = self;
+	$(self).popover('show');
+	},
+	function() {
+	var self = this;
+	timerPopover = setTimeout(function(){hidePopover(self);},300);
+	}
+	);
+	 
+	$(document).on({
+	mouseenter: function() {
+	clearTimeout(timerPopover);
+	},
+	mouseleave: function() {
+	var self = this;
+	timerPopover = setTimeout(function(){hidePopover(popover_parent);},300);
+	}
+	}, '.popover-all'); 
+	</script>
+	</body>
+</html>

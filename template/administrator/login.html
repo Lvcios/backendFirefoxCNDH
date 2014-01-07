@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Correo electr&oacute;nico</title>
+	</head>
+	<body>
+		<h1>Acceso</h1>
+		<form id='formulario' method='post' action=''>{% csrf_token %}
+			<table>{{form}}</table>
+			<p><input type='submit' value='ingresar'></input></p>
+		</form>
+	</body>
+</html>
