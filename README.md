@@ -40,7 +40,7 @@ Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del
 ```js
 {
 	"dependencia":"5", //ID de la dependencia
-	"otro":"nombre", //Nombre de de la dependencia si es que marco otro  [no se embia si no es nesesario]
+	"otro":"nombre", //Nombre de de la dependencia si es que marco otro  [no se envía si no es nesesario]
 	"nombre":"Juan", 
 	"apellido":"filipino",
 	"correo":"nombre@email.dominio",
@@ -48,7 +48,7 @@ Nota: El ' \ ' antes de cada ' " ' en el json del post es una particularidad del
 	"telefono":"212-323-1233",
 	"descripcion":"El texto con la historia del usuario",
 	"fecha":"1233-43-32",
-	"reincide": "true" // or false   [no se embia si no es nesesario]
+	"reincide": "true" // or false   [no se envía si no es nesesario]
 }
 ```
 
