@@ -2,6 +2,8 @@
 from django.db import models
 from tastypie.utils.timezone import now
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 import sys
 # Create your models here.
 
@@ -48,9 +50,11 @@ class Reporte(models.Model):
 			super(Reporte, self).save(*args, **kwargs)
 			reload(sys)
 			sys.setdefaultencoding('latin1')
-			mensaje = 'Estimado ' + self.nombre + ' ' + self.apellido + '. \nSu reporte ha sido recibido y está en la espera de ser revisado por uno de nuestros operadores.' + '\nSu folio de seguimiento es ' + str(self. folio) + '.' + '\nEl mensaje que usted envio es el siguiente: ' + self.descripcion + '\nPor favor, no responda este correo.\n CNDH.' 
-			mensaje.encode('utf-8')
-			send_mail('Reporte CNDH', mensaje, 'noreply@cndh.org',[self.correo], fail_silently=False)
+			subject, from_email, to = 'Hemos recibido su reporte con folio: ' + str(self.folio) + ' - CNDH', 'noreply@cndh.org.mx', self.correo
+			html_content = render_to_string('mail/templateOne.html',{'nombre':self.nombre,'apellido':self.apellido,'telefono':self.telefono,'descripcion':self.descripcion})
+			msg = EmailMessage(subject, html_content, from_email, [to])
+			msg.content_subtype = "html" 
+			msg.send()
 	def __unicode__(self):
 		return str(self.folio)
 		
