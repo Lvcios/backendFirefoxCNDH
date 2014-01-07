@@ -29,7 +29,7 @@ urlpatterns = patterns('',
 
 #c.client_id 'b1962fa42b0c9819c5ae'
 #c.client_secret 'cf39b94a9d05350fa0c33c04b589094cca8634d6'
-# curl -d "client_id=b1962fa42b0c9819c5ae&client_secret=cf39b94a9d05350fa0c33c04b589094cca8634d6&grant_type=password&username=Lvcios&password=2165584&scope=write" 127.0.0.1:8000/oauth2/access_token
+#curl -d "client_id=b1962fa42b0c9819c5ae&client_secret=cf39b94a9d05350fa0c33c04b589094cca8634d6&grant_type=password&username=Lvcios&password=2165584&scope=write" 127.0.0.1:8000/oauth2/access_token
 #{"access_token": "02ef7977c4e707fafaadf4c039b2f343b39db3e8", "scope": "read write read+write", "expires_in": 31535999, "refresh_token": "36e24569531f5540bfc4178b019b2320abd74706"}
 #curl --dump-header  -H "Content-Type: application/json" 127.0.0.1:8000/api/v1/reporte/
 #curl --dump-header - -H "Authorization: OAuth 02ef7977c4e707fafaadf4c039b2f343b39db3e8" -H "Content-Type: application/json" -X POST --data  "{\"nombreInst_id\":\"/api/v1/institucion/1/\",\"nombre\":\"Lvcios\",\"apellido\":\"Malfoy\",\"correo\":\"lmalfoi@slytherin.hogwarts.uk\",\"telefono\":\"123456780\",\"descripcion\":\"El que no puede ser nombrado ha atacado de nuevo.\",\"direccion\":\"London Street 748\",\"fecha\":\"19 de Octubre 2013\",\"reincide\":true,\"status_id\":\"/api/v1/status/1/\"}" 127.0.0.1:8000/api/v1/reporte/

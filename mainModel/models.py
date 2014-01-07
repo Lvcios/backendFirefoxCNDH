@@ -1,6 +1,8 @@
-#encoding:utf-8
+# -*- coding: UTF-8 -*-
 from django.db import models
 from tastypie.utils.timezone import now
+from django.core.mail import send_mail
+import sys
 # Create your models here.
 
 class Institucion(models.Model):
@@ -10,8 +12,16 @@ class Institucion(models.Model):
 		
 class StatusReporte(models.Model):
 	descripcionStatus = models.CharField(max_length = 20)
+	def save(self, *args, **kwargs):
+		super(StatusReporte, self).save(*args, **kwargs)
+		#print 'aqui se debe enviar un correo'
+		reload(sys)
+		sys.setdefaultencoding('latin1')
+		send_mail('Test in metodo save', self.descripcionStatus, 'noreply@cndh.org',['lfloresg0801@gmail.com'], fail_silently=False)
+		#print 'correo enviado'
 	def __unicode__(self):
 		return unicode(self.descripcionStatus) 
+	
 	
 class Reporte(models.Model):
 	folio = models.AutoField(primary_key = True, verbose_name = 'Folio del reporte')
@@ -30,6 +40,13 @@ class Reporte(models.Model):
 	compete = models.CharField(max_length = 10, blank = True, default = "No")
 	respuestaText = models.TextField(blank = True, verbose_name = "Respuesta")
 	cita = models.CharField(max_length = 50,blank = True)
+	def save(self, *args, **kwargs):
+		super(Reporte, self).save(*args, **kwargs)
+		reload(sys)
+		sys.setdefaultencoding('latin1')
+		mensaje = 'Estimado ' + self.nombre + ' ' + self.apellido + '. \nSu reporte ha sido recibido y está en la espera de ser revisado por uno de nuestros operadores.' + '\nSu folio de seguimiento es ' + str(self. folio) + '.' + '\nEl mensaje que usted envio es el siguiente: ' + self.descripcion + '\nPor favor, no responda este correo.\n CNDH.' 
+		mensaje.encode('utf-8')
+		send_mail('Reporte CNDH', mensaje, 'noreply@cndh.org',['lfloresg0801@gmail.com'], fail_silently=False)
 	def __unicode__(self):
 		return str(self.folio)
 		
