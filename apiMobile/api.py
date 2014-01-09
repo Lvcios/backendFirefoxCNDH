@@ -35,7 +35,7 @@ class ReporteResource(ModelResource):
 class OficinaResource(ModelResource):
 	class Meta:
 		queryset = Oficina.objects.all()
-		resource_name = 'institucion'
+		resource_name = 'oficina'
 		authorization = DjangoAuthorization()
 		authentication = OAuth20Authentication()
 
