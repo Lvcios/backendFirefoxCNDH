@@ -32,12 +32,10 @@ class Reporte(models.Model):
 	def __unicode__(self):
 		return str(self.folio)
 
-"""
 class Oficina(models.Model):
 	estado = models.CharField(max_length=50, verbose_name = 'Estado')
-	data-image = models.CharField(max_length=20, verbose_name = 'url imagen')
-	data-lat = models.CharField(max_length=10, verbose_name = 'latitud')
-	data-lon = models.CharField(max_length=10, verbose_name = 'longitud')
+	data_image = models.CharField(max_length=20, verbose_name = 'url imagen')
+	data_lat = models.CharField(max_length=10, verbose_name = 'latitud')
+	data_lon = models.CharField(max_length=10, verbose_name = 'longitud')
 	ciudad = models.CharField(max_length=100, verbose_name = 'ciudad')
 	direccion = models.CharField(max_length=150, verbose_name = 'direccion')
-"""

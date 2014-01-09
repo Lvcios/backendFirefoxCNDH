@@ -22,7 +22,12 @@ class StatusReporteResource(ModelResource):
 		queryset = StatusReporte.objects.all()
 		resource_name = 'status'
 		authorization = Authorization()
-
+class OficinaResource(ModelResource):
+	class Meta:
+		queryset = Oficina.objects.all()
+		resource_name = 'oficina'
+		authorization = Authorization()
+		
 
 
 #codigo de ejemplo:
