@@ -31,19 +31,13 @@ class Reporte(models.Model):
 	cita = models.CharField(max_length = 50,blank = True)
 	def __unicode__(self):
 		return str(self.folio)
-		
+
 """
-class Respuesta(models.Model):
-	folio = models.ForeignKey(Reporte)
-	respuestaText = models.TextField()
-	fechaRespuesta = models.CharField(max_length=20, verbose_name = 'Fecha de respuesta') 
-	def __unicode__(self):
-		return 'Folio del reporte: ' + str(self.folio) + 'Respuesta: ' + self.respuestaText
-"""
-"""		
-class CitaReporte(models.Model):
-	reporte = models.ForeignKey(Reporte)
-	cita = models.CharField(max_length = 50)
-	def __unicode__(self):
-		return 'El reporte ' + str(self.reporte) + 'tiene cita en la fecha ' + self.cita
+class Oficina(models.Model):
+	estado = models.CharField(max_length=50, verbose_name = 'Estado')
+	data-image = models.CharField(max_length=20, verbose_name = 'url imagen')
+	data-lat = models.CharField(max_length=10, verbose_name = 'latitud')
+	data-lon = models.CharField(max_length=10, verbose_name = 'longitud')
+	ciudad = models.CharField(max_length=100, verbose_name = 'ciudad')
+	direccion = models.CharField(max_length=150, verbose_name = 'direccion')
 """
