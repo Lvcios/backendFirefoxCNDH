@@ -25,7 +25,7 @@ urlpatterns = patterns('',
 	url(r"^$", "mainWeb.views.userIndex"),
 	url(r"^consulta/", "mainWeb.views.userConsulta"),
 	url(r"^oficinas.json/", "mainWeb.views.getOficinas"),
-	url(r'^api/', include(v1_api.urls)),
+	url(r'^api/', include(v1_api.urls)), #ok
 	url(r"^administrator/$", "administrator.views.acceso"),
 	url(r"^administrator/reportes/$", "administrator.views.adminIndex"),
 	url(r'^oauth2/', include('provider.oauth2.urls', namespace = 'oauth2')),
