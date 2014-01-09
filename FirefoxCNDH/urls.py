@@ -25,7 +25,6 @@ urlpatterns = patterns('',
 	url(r"^$", "mainWeb.views.userIndex"),
 	url(r'^api/', include(v1_api.urls)),
 	url(r"^administrator/$", "administrator.views.acceso"),
-	#url(r"^oficinas.json/$", "apiMobile.views.getOficinas"),
 	url(r'^oauth2/', include('provider.oauth2.urls', namespace = 'oauth2')),
 )
 
