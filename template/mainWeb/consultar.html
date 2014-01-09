@@ -6,8 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 	
 	<title> Comisión nacinal de los derechos humanos</title>
+	
 	<link href="{% static 'css/normalize.css' %}" rel="stylesheet">
 	<link href="{% static 'css/main.css' %}" rel="stylesheet">
+
 </head>
 <body>
 	<div id="top">
@@ -26,42 +28,16 @@
 	</aside>
 	</div>
 	<section>
-		<div class="col estado">
-			<h2>Estado</h2>
-			<ul>
-				<li><a href="" class="active">Distrito Federar</a></li>
-				<li><a href="">Chiapas</a></li>
-				<li><a href="">Bajacalifornia</a></li>
-				<li><a href="">Chihuahua</a></li>
-				<li><a href="">Guerrero</a></li>
-			</ul>
-		</div>
-		<div class="col municipio">
-			<h2>Municipio/Delegación</h2>
-			<ul>
-				<li><a href="">Tlápan</a></li>
-				<li><a href="">Álvaro Óbregon</a></li>
-				<li><a href="" class="active">Chuauhtémoc</a></li>
-				<li><a href="">Benito Juárez</a></li>
-			</ul>
-		</div>
-		<div class="col oficina">
-			<h2>Oficinas</h2>
-			<ul>
-				<li>
-					<a href="" class="active">
-						<p>Periférico Sur #3453, San Jerónimo Lídice, C. P. 10200</p>				
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="col mapa">
-			MAP
+		<h2 class="consultar">Consultar reporte</h2>
+		<div class="texto consultar">
+			<input 	class="placeholderajustable"type="text" name="" value="" placeholder="Ingrese su número de reporte">
+			<button class="boton_rectangular" type="">Consultar</button>
 		</div>
 	</section>
 	<script src="{% static 'js/libs/jquery-1.10.2.js' %}"></script>
 	<script src="{% static 'js/libs/handlebars-1.1.2.js' %}"></script>
 	<script src="{% static 'js/libs/ember-1.2.0.js' %}"></script>
 	<script src="{% static 'js/app.js' %}"></script>
+
 </body>
 </html>

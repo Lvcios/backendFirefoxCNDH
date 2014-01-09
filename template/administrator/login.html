@@ -1,13 +1,46 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Correo electr&oacute;nico</title>
-	</head>
-	<body>
-		<h1>Acceso</h1>
-		<form id='formulario' method='post' action=''>{% csrf_token %}
-			<table>{{form}}</table>
-			<p><input type='submit' value='ingresar'></input></p>
-		</form>
-	</body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	
+	<title> Comisión nacinal de los derechos humanos</title>
+	<link href="{% static 'css/normalize.css' %}" rel="stylesheet">
+	<link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+	<div id="top">
+	<header>
+		<h1>Comisión nacional de los derechos humanos.</h1>
+		<img src="{% static 'img/logo.png' %}" alt="">
+			<nav>
+				<a href="#reportar">Reportar</a>
+				<a href="#consultar">Consultar</a>
+				<a href="#oficinas" class="active">Oficinas</a>
+			</nav>
+	</header>
+	<aside>
+		<a class="user" href="#idioma">Idioma</a>
+		<a class="user" href="#ayuda">Ayuda</a>
+	</aside>
+	</div>
+	<section>
+		<h2 class="login">Inicie Sesión</h2>
+		<div class="texto login">
+			 <form class="form-signin" role="form" method="post">{% csrf_token %}
+        		<!--<input type="text" class="form-control" placeholder="Correo Electronico" required autofocus>
+        		<input type="password" class="form-control" placeholder="Contraseña" required>-->
+				<table>{{form}}</table>
+                <p><input type='submit' class="boton naranja acceder" value='ingresar'></input></p>
+        		<!--<button class="boton naranja acceder" type="submit">Acceder</button>-->
+      		</form>
+		</div>
+	</section>
+  <script src="{% static 'js/libs/jquery-1.10.2.js' %}"></script>
+  <script src="{% static 'js/libs/handlebars-1.1.2.js' %}"></script>
+  <script src="{% static 'js/libs/ember-1.2.0.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+
+</body>
 </html>

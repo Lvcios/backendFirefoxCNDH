@@ -6,4 +6,10 @@ from django.http import HttpResponseRedirect, HttpResponse
 # Create your views here.
 
 def userIndex(request):
-	return render_to_response("mainWeb/index.html",{},RequestContext(request))
+	return render_to_response("mainWeb/formulario.html",{},RequestContext(request))
+	
+def userConsulta(request):
+	return render_to_response("mainWeb/consultar.html",{},RequestContext(request))
+	
+def getOficinas(request):
+	return render_to_response("mainWeb/oficinas.json",{},RequestContext(request))

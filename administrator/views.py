@@ -7,7 +7,9 @@ from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def adminIndex(request):
-	return render_to_response("administrator/index.html",{},RequestContext(request))
+	return render_to_response("administrator/Admin_reportes.html",{},RequestContext(request))
+	
+
 	
 def acceso(request):
 	if request.method == 'POST':
@@ -19,9 +21,9 @@ def acceso(request):
 			if ingreso is not None:
 				if ingreso.is_active:
 					login(request, ingreso)
-					return HttpResponse('Acceso Permitido')
+					return HttpResponseRedirect('reportes/')
 				else:
-					return HttpResponse('El usuario no esta activo')
+					return HttpResponseRedirect('Usuario no activo')
 			else:
 				return HttpResponse('El usuario no existe')
 	else:
