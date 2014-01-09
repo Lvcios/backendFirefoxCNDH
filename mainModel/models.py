@@ -60,13 +60,12 @@ class Reporte(models.Model):
 	def __unicode__(self):
 		return str(self.folio)
 		
-"""
+
 class Oficina(models.Model):
 	estado = models.CharField(max_length = 50)
-	data-image = models.CharField(max_length = 20)
-	data-lat = models.CharField(max_length = 20)
-	data-lon = models.CharField(max_length = 20)
+	data_image = models.CharField(max_length = 20)
+	data_lat = models.CharField(max_length = 20)
+	data_lon = models.CharField(max_length = 20)
 	ciudad = models.CharField(max_length = 20)
 	direccion = models.CharField(max_length = 100)
-"""
 		

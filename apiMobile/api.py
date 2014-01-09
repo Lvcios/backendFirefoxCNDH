@@ -31,6 +31,13 @@ class ReporteResource(ModelResource):
 		always_return_data = True 
 		authorization = DjangoAuthorization()
 		authentication = OAuth20Authentication()
+		
+class OficinaResource(ModelResource):
+	class Meta:
+		queryset = Oficina.objects.all()
+		resource_name = 'institucion'
+		authorization = DjangoAuthorization()
+		authentication = OAuth20Authentication()
 
 
 #codigo de ejemplo:
