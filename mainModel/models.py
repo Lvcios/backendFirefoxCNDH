@@ -5,7 +5,9 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 import sys
-# Create your models here.
+# Create your models here
+
+	
 
 class Institucion(models.Model):
 	nombreInst = models.CharField(max_length=45, verbose_name = 'Nombre de la institucion')
@@ -59,17 +61,12 @@ class Reporte(models.Model):
 		return str(self.folio)
 		
 """
-class Respuesta(models.Model):
-	folio = models.ForeignKey(Reporte)
-	respuestaText = models.TextField()
-	fechaRespuesta = models.CharField(max_length=20, verbose_name = 'Fecha de respuesta') 
-	def __unicode__(self):
-		return 'Folio del reporte: ' + str(self.folio) + 'Respuesta: ' + self.respuestaText
+class Oficina(models.Model):
+	estado = models.CharField(max_length = 50)
+	data-image = models.CharField(max_length = 20)
+	data-lat = models.CharField(max_length = 20)
+	data-lon = models.CharField(max_length = 20)
+	ciudad = models.CharField(max_length = 20)
+	direccion = models.CharField(max_length = 100)
 """
-"""		
-class CitaReporte(models.Model):
-	reporte = models.ForeignKey(Reporte)
-	cita = models.CharField(max_length = 50)
-	def __unicode__(self):
-		return 'El reporte ' + str(self.reporte) + 'tiene cita en la fecha ' + self.cita
-"""
+		
