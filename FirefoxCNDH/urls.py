@@ -24,6 +24,8 @@ urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
 	url(r"^$", "mainWeb.views.userIndex"),
 	url(r"^consulta/", "mainWeb.views.userConsulta"),
+	url(r"^transparencia/", "mainWeb.views.userTransparencia"),
+	url(r"^acercade/", "mainWeb.views.userAcercade"),
 	url(r"^oficinas.json/", "mainWeb.views.getOficinas"),
 	url(r'^api/', include(v1_api.urls)), #ok
 	url(r"^administrator/$", "administrator.views.acceso"),
