@@ -6,5 +6,5 @@ from django.template import RequestContext
 def getOficinas(request):
 	response = render_to_response('mainWeb/oficinas.json',{},RequestContext(request))
 	response["Access-Control-Allow-Origin"] = "*" 
-	return response 
+	return response #ok
 	
