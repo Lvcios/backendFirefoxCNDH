@@ -53,7 +53,8 @@ class Reporte(models.Model):
 			reload(sys)
 			sys.setdefaultencoding('latin1')
 			subject, from_email, to = 'Hemos recibido su reporte con folio: ' + str(self.folio) + ' - CNDH', 'noreply@cndh.org.mx', self.correo
-			html_content = render_to_string('mail/templateOne.html',{'nombre':self.nombre,'apellido':self.apellido,'telefono':self.telefono,'descripcion':self.descripcion})
+			#html_content = render_to_string('mail/correos.html',{'nombre':self.nombre,'apellido':self.apellido,'telefono':self.telefono,'descripcion':self.descripcion})
+			html_content = render_to_string('mail/index.html',{'nombre':self.nombre,'apellido':self.apellido,'telefono':self.telefono,'descripcion':self.descripcion})
 			msg = EmailMessage(subject, html_content, from_email, [to])
 			msg.content_subtype = "html" 
 			msg.send()

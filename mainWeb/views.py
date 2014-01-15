@@ -5,8 +5,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 
 # Create your views here.
 
+def loadBase(request):
+	return render_to_response("mainWeb/base.html",{},RequestContext(request))
+
 def userIndex(request):
 	return render_to_response("mainWeb/formulario.html",{},RequestContext(request))
+	
+def userOficina(request):
+	return render_to_response("mainWeb/index.html",{},RequestContext(request))
 	
 def userConsulta(request):
 	return render_to_response("mainWeb/consultar.html",{},RequestContext(request))

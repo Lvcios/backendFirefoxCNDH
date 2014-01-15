@@ -1,31 +1,5 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-	
-	<title> Comisión nacinal de los derechos humanos</title>
-	<link href="{% static 'css/normalize.css' %}" rel="stylesheet">
-	<link href="{% static 'css/main.css' %}" rel="stylesheet">
-</head>
-<body>
-	<div id="top">
-	<header>
-		<h1>Comisión nacional de los derechos humanos.</h1>
-		<img src="{% static 'img/logo.png'%}" alt="">
-			<nav>
-				<a href="#reportar">Reportar</a>
-				<a href="#consultar">Consultar</a>
-				<a href="#oficinas" class="active">Oficinas</a>
-			</nav>
-	</header>
-	<aside>
-		<a class="user" href="#idioma">Idioma</a>
-		<a class="user" href="#ayuda">Ayuda</a>
-	</aside>
-	</div>
-	<section>
+{% extends 'mainWeb/base.html '%}
+{%block contenido%}
 		<div class="col estado">
 			<h2>Estado</h2>
 			<ul>
@@ -58,10 +32,4 @@
 		<div class="col mapa">
 			MAP
 		</div>
-	</section>
-	<script src="{% static 'js/libs/jquery-1.10.2.js' %}"></script>
-	<script src="{% static 'js/libs/handlebars-1.1.2.js' %}"></script>
-	<script src="{% static 'js/libs/ember-1.2.0.js' %}"></script>
-	<script src="{% static 'js/app.js' %}"></script>
-</body>
-</html>
+{%endblock%}
