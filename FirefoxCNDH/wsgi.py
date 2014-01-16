@@ -25,10 +25,10 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "FirefoxCNDH.settings")
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
 from django.core.wsgi import get_wsgi_application
-#from dj_static import Cling #for heroku, comment for local server
-#application = Cling(get_wsgi_application()) #for heroku, comment for local server
+from dj_static import Cling #for heroku, comment for local server
+application = Cling(get_wsgi_application()) #for heroku, comment for local server
 
-application = get_wsgi_application() #uncomment for local server
+#application = get_wsgi_application() #uncomment for local server
 
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
