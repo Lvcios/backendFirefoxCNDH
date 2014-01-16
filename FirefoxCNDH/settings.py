@@ -13,6 +13,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
  #uncomment for local server
+
 """
 DATABASES = {
     'default': {

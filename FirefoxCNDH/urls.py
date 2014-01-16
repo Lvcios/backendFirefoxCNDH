@@ -9,7 +9,8 @@ admin.autodiscover()
 v1_api = Api(api_name='v1')
 v1_api.register(ReporteResource())
 v1_api.register(InstitucionResource())
-v1_api.register(StatusReporteResource())
+#v1_api.register(StatusReporteResource())
+v1_api.register(StatusReporteCORSResource())
 v1_api.register(OficinaResource())
 
 urlpatterns = patterns('',
