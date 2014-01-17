@@ -68,8 +68,8 @@ class StatusReporteResource(BaseCorsResource, ModelResource):
 		list_allowed_methods = ['get', 'post', 'put']
 		detail_allowed_methods = ['get', 'post', 'put']
 		filtering = {'id':ALL,}
-		authorization = DjangoAuthorization()
-		authentication = OAuth20Authentication()
+		#authorization = DjangoAuthorization()
+		#authentication = OAuth20Authentication()
 
 class StatusReporteCORSResource(StatusReporteResource):
 	pass
