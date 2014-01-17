@@ -74,14 +74,17 @@ class StatusReporteResource(BaseCorsResource, ModelResource):
 class StatusReporteCORSResource(StatusReporteResource):
 	pass
 
-class InstitucionResource(ModelResource):
+class InstitucionResource(BaseCorsResource, ModelResource):
 	class Meta:
 		queryset = Institucion.objects.all()
 		resource_name = 'institucion'
-		authorization = DjangoAuthorization()
-		authentication = OAuth20Authentication()
+		excludes = ['meta']
+		#authorization = DjangoAuthorization()
+		#authentication = OAuth20Authentication()
+class InstitucionCORSResource(InstitucionResource):
+	pass
 
-class ReporteResource(ModelResource):
+class ReporteResource(BaseCorsResource, ModelResource):
 	nombreInst_id = fields.ForeignKey(InstitucionResource, 'nombreInst')
 	status_id = fields.ForeignKey(StatusReporteResource, 'status')
 	class Meta:
@@ -90,8 +93,10 @@ class ReporteResource(ModelResource):
 		excludes = ['fechaUpload']
 		filtering = {'status_id':ALL_WITH_RELATIONS,}
 		always_return_data = True 
-		authorization = DjangoAuthorization()
-		authentication = OAuth20Authentication()
+		#authorization = DjangoAuthorization()
+		#authentication = OAuth20Authentication()
+class ReporteCORSResource(ReporteResource):
+	pass
 		
 class OficinaResource(ModelResource):
 	class Meta:
